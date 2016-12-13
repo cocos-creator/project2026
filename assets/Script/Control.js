@@ -48,6 +48,7 @@ cc.Class({
     onKeyUp: function (event) {
         if (event.keyCode === this.moveDirection) {
             this.moveDirection = null;
+            this.anim.stop();
         }
     },
 

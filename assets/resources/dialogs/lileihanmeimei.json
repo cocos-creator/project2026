@@ -1,0 +1,19 @@
+{
+	"in": 0,
+	"entries": [
+		"#Lilei#Hello",
+		"#Han meimei#Hello",
+		"#Lilei#How are you ?",
+		"Fine|Good",
+		"#Han meimei#Fine, and you ?",
+		"#Han meimei#I'm Good, thank you*",
+		"#Lilei#I'm fine too, thank you!"
+	],
+	"sequence": {
+		"4": {
+			"Fine": 5,
+			"Good": 6
+		},
+		"5": 7
+	}
+}

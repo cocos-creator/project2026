@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "caa9d100-bb7a-47c2-bb2d-3038b44fa9a5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "backpack_icon": {
+      "ver": "1.0.3",
+      "uuid": "d000d901-bdae-4044-ad03-775cd031b327",
+      "rawTextureUuid": "caa9d100-bb7a-47c2-bb2d-3038b44fa9a5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 30,
+      "trimY": 26,
+      "width": 83,
+      "height": 91,
+      "rawWidth": 144,
+      "rawHeight": 144,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

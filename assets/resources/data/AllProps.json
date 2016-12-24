@@ -1,0 +1,26 @@
+[
+    {
+        "icon": "tuoye",
+        "id": "0",
+        "index": -1,
+        "type": "recovery",
+        "name": "唾液",
+        "MP": 0,
+        "MaxMP": 0,
+        "HP": -50,
+        "MaxHP": 0,
+        "maxNumber": 99,
+        "Introduction": "恶心的未知唾液，食用后HP-50。"
+    },
+
+    {
+        "icon": "upg_sword",
+        "id": "1001",
+        "index": -1, 
+        "type": "weapon",
+        "name": "屠龙",
+        "hurt": 10000,
+        "maxNumber": 1,
+        "Introduction": ":)"
+    }
+]

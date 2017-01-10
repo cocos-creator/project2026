@@ -1,4 +1,3 @@
-cc.view.enableAntiAlias(false);
 const Loading = require('Loading');
 
 cc.Class({

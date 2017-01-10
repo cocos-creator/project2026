@@ -1,3 +1,5 @@
+cc.view.enableAntiAlias(false);
+
 cc.Class({
     extends: cc.Component,
 

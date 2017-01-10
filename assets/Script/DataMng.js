@@ -1,4 +1,4 @@
-let cards = {};
+let cards = [];
 
 module.exports = {
     // load heroInfo data and portrait spriteFrame
@@ -12,7 +12,7 @@ module.exports = {
                 let count = list.length;
                 for (let i = 0; i < list.length; ++i) {
                     let cardInfo = list[i];
-                    cards[cardInfo.id] = cardInfo;
+                    cards.push(cardInfo);
                     let costArr = cardInfo.cost.split('|');
                     for (let idx = 0 ; idx < costArr.length; ++idx) {
                         costArr[idx] = parseInt(costArr[idx]);

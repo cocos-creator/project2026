@@ -1,0 +1,24 @@
+{
+  "appKey": "",
+  "appSecret": "",
+  "excludeScenes": [],
+  "includeAnySDK": false,
+  "includeSdk": [
+    "anysdk"
+  ],
+  "inlineSpriteFrames": true,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.project2026",
+  "privateKey": "",
+  "renderMode": "0",
+  "startScene": "5f3d2e28-0d09-42fe-aa9d-6aee3603b55c",
+  "title": "project2026",
+  "webOrientation": "auto"
+}

@@ -1,3 +1,4 @@
+cc.view.enableAntiAlias(false);
 const Loading = require('Loading');
 
 cc.Class({
@@ -9,7 +10,6 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        cc.view.enableAntiAlias(false);
         cc.game.addPersistRootNode(this.node);
         this.loading.startLoading();
     },

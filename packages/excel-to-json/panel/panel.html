@@ -1,0 +1,109 @@
+<link rel="import" href="packages://ui-kit/widget/input/input.html">
+<link rel="import" href="packages://ui-kit/widget/button/button.html">
+
+<dom-module id="excel-to-json">
+    <style>
+        :host {
+            padding: 15px;
+        }
+
+        .btn-run {
+            width: 80px;
+            margin-top: 10px;
+            float: right;
+        }
+    </style>
+
+    <template>
+        <editor-custom-prop name="Excel Path">
+            <editor-button class="medium" on-click="_onInstallNPMDeps">
+                    Install NPM Dependencies
+            </editor-button>
+            <h2>Choose Source Excel</h2>
+            <div class="layout horizontal center">
+                <editor-input class="flex-2" value="{{profiles.local.srcExcelPath}}"></editor-input>
+                <editor-button class="small" on-click="_onChooseExcelPathClick">
+                    ···
+                </editor-button>
+            </div>
+            <div class="layout horizontal center">
+                <editor-input class="flex-2" value="{{profiles.local.outJsonName}}"></editor-input>
+            </div>
+            <div class="layout horizontal">
+                <editor-button class="medium" on-click="_onProcessFile">
+                    Convert to JSON
+                </editor-button>
+            </div>
+            <h2>Readme</h2>
+            <p>1. Choose a source excel file in your project. You can take the one in excel-to-json/node_modules/xlsx-to-json/sample for example. </p>
+            <p>2. Name the output json file in the second input field.</p>
+            <p>3. Click 'Convert to JSON' button, the json file will be created to the same folder of excel file.</p>
+            <p>Remember when making package for Cocos Creator, you can use any existing npm package to save loads of your work.</p>
+            <p>Have fun!</p>
+        </editor-custom-prop>
+    </template>
+</dom-module>
+
+<script>
+var Remote = require('remote');
+var Path = require('path');
+
+Editor.registerPanel( 'excel-to-json.panel', {
+    is: 'excel-to-json',
+
+    observers: [
+        '_localProfileChanged(profiles.local.*)'
+    ],
+
+    ready: function () {
+        this.async(function () {
+            var self = this;
+
+            if ( !self.profiles.local.srcExcelPath ) {
+                self.set('profiles.local.srcExcelPath', Editor.projectInfo.path );
+            }
+            if ( !self.profiles.local.outJsonName ) {
+                self.set('profiles.local.outJsonName', "output.json");
+            }
+        });
+    },
+
+    _onChooseExcelPathClick: function (event) {
+        event.stopPropagation();
+
+        var dialog = Remote.require('dialog');
+        var projectPath = Path.dirname(this.profiles.local.srcExcelPath);
+
+        dialog.showOpenDialog({
+            defaultPath: projectPath,
+            properties: ['openFile'],
+            filters: [{ name: 'Excel', extensions: ['xls', 'xlsx'] }]
+        }, function (res) {
+            if (res) {
+                this.set('profiles.local.srcExcelPath', res[0]);
+            }
+        }.bind(this));
+    },
+
+    // to receive IPC message on page-level, you need to register message in package.json
+    _onProcessFile : function (event) {
+        this.set('profiles.local.srcExcelPath', this.profiles.local.srcExcelPath );
+        this.set('profiles.local.outJsonName', this.profiles.local.outJsonName );
+        console.log('srcPath: ' + this.profiles.local.srcExcelPath);
+        Editor.sendToCore('excel-to-json:parse', {
+            srcPath: this.profiles.local.srcExcelPath,
+            outName: this.profiles.local.outJsonName
+        });
+    },
+
+    _onInstallNPMDeps: function (event) {
+        Editor.sendToCore('excel-to-json:install');
+    },
+
+    _localProfileChanged: function ( changeRecord ) {
+        if ( this.profiles.local.save ) {
+            this.profiles.local.save();
+        }
+    }
+});
+</script>

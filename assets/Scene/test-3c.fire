@@ -425,7 +425,7 @@
     "_tag": -1,
     "_opacityModifyRGB": false,
     "_id": "4291bv+9dpGkaJKQBJZXX5v",
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 23
@@ -586,6 +586,7 @@
     },
     "_enabled": true,
     "isAlignOnce": true,
+    "_target": null,
     "_alignFlags": 45,
     "_left": 20,
     "_right": 20,
@@ -648,6 +649,7 @@
     },
     "_enabled": true,
     "isAlignOnce": true,
+    "_target": null,
     "_alignFlags": 45,
     "_left": 20,
     "_right": 20,
@@ -780,6 +782,7 @@
     },
     "_enabled": true,
     "isAlignOnce": true,
+    "_target": null,
     "_alignFlags": 45,
     "_left": 0,
     "_right": 0,

@@ -1,0 +1,120 @@
+var _chr = function(c) { return String.fromCharCode(c); };
+var _ord = function(c) { return c.charCodeAt(0); };
+var attregexg=/([\w:]+)=((?:")([^"]*)(?:")|(?:')([^']*)(?:'))/g;
+var attregex=/([\w:]+)=((?:")(?:[^"]*)(?:")|(?:')(?:[^']*)(?:'))/;
+function parsexmltag(tag, skip_root) {
+	var words = tag.split(/\s+/);
+	var z = []; if(!skip_root) z[0] = words[0];
+	if(words.length === 1) return z;
+	var m = tag.match(attregexg), y, j, w, i;
+	if(m) for(i = 0; i != m.length; ++i) {
+		y = m[i].match(attregex);
+		if((j=y[1].indexOf(":")) === -1) z[y[1]] = y[2].substr(1,y[2].length-2);
+		else {
+			if(y[1].substr(0,6) === "xmlns:") w = "xmlns"+y[1].substr(6);
+			else w = y[1].substr(j+1);
+			z[w] = y[2].substr(1,y[2].length-2);
+		}
+	}
+	return z;
+}
+
+var encodings = {
+	'&quot;': '"',
+	'&apos;': "'",
+	'&gt;': '>',
+	'&lt;': '<',
+	'&amp;': '&'
+};
+var rencoding = evert(encodings);
+var rencstr = "&<>'\"".split("");
+
+// TODO: CP remap (need to read file version to determine OS)
+function unescapexml(text){
+	var s = text + '';
+	s = s.replace(/&[a-z]*;/g, function($$) { return encodings[$$]; });
+	return s.replace(/_x([0-9a-fA-F]*)_/g,function(m,c) {return _chr(parseInt(c,16));});
+}
+function escapexml(text){
+	var s = text + '';
+	rencstr.forEach(function(y){s=s.replace(new RegExp(y,'g'), rencoding[y]);});
+	s = s.replace(/[\u0000-\u0008\u000b-\u001f]/g,function(s) { return "_x" + ("0000"+_ord(s).toString(16)).substr(-4) + "_";});
+	return s;
+}
+
+
+function parsexmlbool(value, tag) {
+	switch(value) {
+		case '0': case 0: case 'false': case 'FALSE': return false;
+		case '1': case 1: case 'true': case 'TRUE': return true;
+		default: throw "bad boolean value " + value + " in "+(tag||"?");
+	}
+}
+
+var utf8read = function(orig) {
+	var out = [], i = 0, c = 0, c1 = 0, c2 = 0, c3 = 0;
+	if(!orig.match(/[\u0080-\uffff]/)) return orig;
+	while (i < orig.length) {
+		c = orig.charCodeAt(i++);
+		if (c < 128) out.push(_chr(c));
+		else {
+			c2 = orig.charCodeAt(i++);
+			if (c>191 && c<224) out.push(_chr((c & 31) << 6 | c2 & 63));
+			else {
+				c3 = orig.charCodeAt(i++);
+				out.push(_chr((c & 15) << 12 | (c2 & 63) << 6 | c3 & 63));
+			}
+		}
+	}
+	return out.join("");
+};
+
+// matches <foo>...</foo> extracts content
+function matchtag(f,g) {return new RegExp('<(?:\\w+:)?'+f+'(?: xml:space="preserve")?(?:[^>]*)>([^\u2603]*)</(?:\\w+:)?'+f+'>',(g||"")+"m");}
+
+function parseVector(data) {
+	var h = parsexmltag(data);
+
+	var matches = data.match(new RegExp("<vt:" + h.baseType + ">(.*?)</vt:" + h.baseType + ">", 'g'))||[];
+	if(matches.length != h.size) throw "unexpected vector length " + matches.length + " != " + h.size;
+	var res = [];
+	matches.forEach(function(x) {
+		var v = x.replace(/<[/]?vt:variant>/g,"").match(/<vt:([^>]*)>(.*)</);
+		res.push({v:v[2], t:v[1]});
+	});
+	return res;
+}
+
+function writetag(f,g) {return '<' + f + (g.match(/(^\s|\s$|\n)/)?' xml:space="preserve"' : "") + '>' + g + '</' + f + '>';}
+
+function writextag(f,g,h) { return '<' + f + (h !== null && h !== undefined ? keys(h).map(function(k) { return " " + k + '="' + h[k] + '"';}).join("") : "") + (g === null || g === undefined ? "/" : (g.match(/(^\s|\s$|\n)/)?' xml:space="preserve"' : "") + '>' + g + '</' + f) + '>';}
+
+function write_w3cdtf(d, t) { try { return d.toISOString().replace(/\.\d*/,""); } catch(e) { if(t) throw e; } }
+
+function write_vt(s) {
+	if(typeof s == 'string') return writextag('vt:lpwstr', s);
+	if(typeof s == 'number') return writextag((s|0)==s?'vt:i4':'vt:r8', String(s));
+	if(typeof s == 'boolean') return writextag('vt:bool', s?'true':'false');
+	if(s instanceof Date) return writextag('vt:filetime', write_w3cdtf(s));
+	throw new Error("Unable to serialize " + s);
+}
+
+var XML_HEADER = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\r\n';
+var XMLNS = {
+	'dc': 'http://purl.org/dc/elements/1.1/',
+	'dcterms': 'http://purl.org/dc/terms/',
+	'dcmitype': 'http://purl.org/dc/dcmitype/',
+	'mx': 'http://schemas.microsoft.com/office/mac/excel/2008/main',
+	'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
+	'sjs': 'http://schemas.openxmlformats.org/package/2006/sheetjs/core-properties',
+	'vt': 'http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes',
+	'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+	'xsd': 'http://www.w3.org/2001/XMLSchema'
+};
+
+XMLNS.main = [
+	'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
+	'http://purl.oclc.org/ooxml/spreadsheetml/main',
+	'http://schemas.microsoft.com/office/excel/2006/main',
+	'http://schemas.microsoft.com/office/excel/2006/2'
+];

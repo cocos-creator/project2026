@@ -34,11 +34,11 @@ cc.Class({
 
     playerTurn (callback) {
         cc.log('playerTurn');
-        this.drawCards(() => {
-            this.playerUseCard(() => {
-                this.playerAttack(callback);
-            });
-        });
+        async.waterfall([
+            this.drawCards.bind(this),
+            this.playerUseCard.bind(this),
+            this.playerAttack.bind(this)
+        ], callback);
     },
 
     playerUseCard (callback) {

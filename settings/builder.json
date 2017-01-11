@@ -13,5 +13,12 @@
   "packageName": "org.cocos2d.project2026",
   "startScene": "5f3d2e28-0d09-42fe-aa9d-6aee3603b55c",
   "title": "project2026",
-  "webOrientation": "landscape"
+  "webOrientation": "landscape",
+  "oauthLoginServer": "",
+  "appKey": "",
+  "appSecret": "",
+  "privateKey": "",
+  "renderMode": "0",
+  "inlineSpriteFrames": true,
+  "mergeStartScene": false
 }

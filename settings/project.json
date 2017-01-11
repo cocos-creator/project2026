@@ -8,5 +8,9 @@
       true
     ]
   ],
-  "excluded-modules": []
+  "excluded-modules": [],
+  "design-resolution-width": 960,
+  "design-resolution-height": 640,
+  "fit-width": false,
+  "fit-height": true
 }

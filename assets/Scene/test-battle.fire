@@ -373,7 +373,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "enemy1",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -408,8 +408,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -239.4,
-      "y": 38
+      "x": 111.2,
+      "y": 41.6
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -417,7 +417,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "6b268zva7ZN145ct1nfqp7b",
+    "_id": "0d1c40ALIZPJ7rZasl/hO9p",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -430,9 +430,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 133,
+      "g": 253,
+      "b": 142,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -452,7 +452,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
+    "_scaleX": -1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -465,7 +465,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "b28c6W0FIZAS5a+tJVsOwJ+",
+    "_id": "915d3vHmyBHSI3alpvQbtDN",
     "_active": true,
     "_components": [
       {
@@ -518,7 +518,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "enemy2",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -553,8 +553,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -208.6,
-      "y": 7.2
+      "x": 78.9,
+      "y": 10.8
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -562,7 +562,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "26b55scMMdPm6afN3e4AanM",
+    "_id": "183bcZ8l35NsaoXH2G82vni",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -575,8 +575,8 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
+      "r": 210,
+      "g": 115,
       "b": 255,
       "a": 255
     },
@@ -597,7 +597,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
+    "_scaleX": -1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -610,7 +610,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "917e4j/mQNL/ZPoejo7Fcd1",
+    "_id": "a9d92MxDutFB4QFa7duGV0/",
     "_active": true,
     "_components": [
       {
@@ -663,7 +663,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "enemy3",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -698,8 +698,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -240.9,
-      "y": -27.2
+      "x": 111.1,
+      "y": -23.6
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -707,7 +707,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "6641e++8MZBgpNttJZtqbyA",
+    "_id": "ced43bdgNBFs54+WzxWnD74",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -720,9 +720,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 231,
+      "g": 171,
+      "b": 93,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -742,7 +742,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
+    "_scaleX": -1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -755,7 +755,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "da9b0OKuBBAi6h2ZWHNISwg",
+    "_id": "0ae89KINZNCm4xxnugrh5B/",
     "_active": true,
     "_components": [
       {
@@ -808,7 +808,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "player1",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -843,8 +843,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 111.2,
-      "y": 41.6
+      "x": -239.4,
+      "y": 38
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -852,7 +852,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "0d1c40ALIZPJ7rZasl/hO9p",
+    "_id": "6b268zva7ZN145ct1nfqp7b",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -865,9 +865,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 133,
-      "g": 253,
-      "b": 142,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -887,7 +887,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": -1,
+    "_scaleX": 1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -900,7 +900,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "915d3vHmyBHSI3alpvQbtDN",
+    "_id": "b28c6W0FIZAS5a+tJVsOwJ+",
     "_active": true,
     "_components": [
       {
@@ -953,7 +953,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "player2",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -988,8 +988,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 78.9,
-      "y": 10.8
+      "x": -208.6,
+      "y": 7.2
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -997,7 +997,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "183bcZ8l35NsaoXH2G82vni",
+    "_id": "26b55scMMdPm6afN3e4AanM",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -1010,8 +1010,8 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 210,
-      "g": 115,
+      "r": 255,
+      "g": 255,
       "b": 255,
       "a": 255
     },
@@ -1032,7 +1032,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": -1,
+    "_scaleX": 1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -1045,7 +1045,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "a9d92MxDutFB4QFa7duGV0/",
+    "_id": "917e4j/mQNL/ZPoejo7Fcd1",
     "_active": true,
     "_components": [
       {
@@ -1098,7 +1098,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "character",
+    "_name": "player3",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -1133,8 +1133,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 111.1,
-      "y": -23.6
+      "x": -240.9,
+      "y": -27.2
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1142,7 +1142,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "ced43bdgNBFs54+WzxWnD74",
+    "_id": "6641e++8MZBgpNttJZtqbyA",
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -1155,9 +1155,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 231,
-      "g": 171,
-      "b": 93,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -1177,7 +1177,7 @@
     "_children": [],
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": -1,
+    "_scaleX": 1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -1190,7 +1190,7 @@
     "_globalZOrder": 0,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "0ae89KINZNCm4xxnugrh5B/",
+    "_id": "da9b0OKuBBAi6h2ZWHNISwg",
     "_active": true,
     "_components": [
       {
@@ -1512,6 +1512,7 @@
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_N$string": "6",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1666,6 +1667,7 @@
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_N$string": "6",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1820,6 +1822,7 @@
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_N$string": "6",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1974,6 +1977,7 @@
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_N$string": "6",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,

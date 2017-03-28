@@ -1,10 +1,10 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "move_right",
+  "_name": "run",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.8,
-  "sample": 10,
+  "_duration": 0.32,
+  "sample": 25,
   "speed": 1,
   "wrapMode": 2,
   "curveData": {
@@ -18,43 +18,43 @@
             }
           },
           {
-            "frame": 0.1,
+            "frame": 0.04,
             "value": {
               "__uuid__": "aa9718f0-d9fc-4ad1-8d92-1d4d67816e2d"
             }
           },
           {
-            "frame": 0.2,
+            "frame": 0.08,
             "value": {
               "__uuid__": "7350daf3-dba2-4286-8e01-0c28615dc019"
             }
           },
           {
-            "frame": 0.3,
+            "frame": 0.12,
             "value": {
               "__uuid__": "67403ad6-42ea-4579-b3ba-6e66fddb3901"
             }
           },
           {
-            "frame": 0.4,
+            "frame": 0.16,
             "value": {
               "__uuid__": "159d8d75-cc68-4744-b541-3c290a3f1d48"
             }
           },
           {
-            "frame": 0.5,
+            "frame": 0.2,
             "value": {
               "__uuid__": "dfd3fc99-f4d8-48bd-9bb6-b799573a8323"
             }
           },
           {
-            "frame": 0.6,
+            "frame": 0.24,
             "value": {
               "__uuid__": "bf5124b8-f2dd-482b-941a-c9182d727bb4"
             }
           },
           {
-            "frame": 0.7,
+            "frame": 0.28,
             "value": {
               "__uuid__": "aea7d8da-a043-4b5c-b978-e8b5e9b7eabc"
             }

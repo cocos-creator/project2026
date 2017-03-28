@@ -207,7 +207,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 30,
-      "height": 46
+      "height": 49
     },
     "_children": [],
     "_rotationX": 0,
@@ -250,7 +250,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "051e7b61-5960-402f-8541-8012a2fe11e7"
+      "__uuid__": "5ed34fcf-b7e9-4325-b985-e9364dd7e62b"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -572,6 +572,7 @@
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_N$string": "雾霾侠：这到底是怎么回事...",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 0,

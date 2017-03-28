@@ -3,7 +3,7 @@
   "_name": "move_down",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.9,
+  "_duration": 0.8,
   "sample": 10,
   "speed": 1,
   "wrapMode": 2,
@@ -14,55 +14,49 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "30585446-f643-4b8b-974e-c6207566b156"
+              "__uuid__": "e5285620-4b87-41e3-a902-3c16221adb58"
             }
           },
           {
             "frame": 0.1,
             "value": {
-              "__uuid__": "1c231199-58dd-41ed-b2e8-914439f31b8f"
+              "__uuid__": "ebbcd64c-608a-4dda-b500-be68debb2228"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2ced9d00-b686-49dd-9d92-ba63a9f38da6"
+              "__uuid__": "4971620c-1112-47c3-a8ab-71127bfb81fa"
             }
           },
           {
             "frame": 0.3,
             "value": {
-              "__uuid__": "df12e537-6150-4e83-961e-28038881d693"
+              "__uuid__": "f7ff7c57-4fc5-4141-a464-07c7954e39ee"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "0f154ec9-48a5-4844-9d7a-e69605c7d2f0"
+              "__uuid__": "4495b5f1-5214-4a5a-82ad-b9404a7213a4"
             }
           },
           {
             "frame": 0.5,
             "value": {
-              "__uuid__": "8adb0a0d-a91b-436a-86a4-94ad5c13e9fd"
+              "__uuid__": "3b8cdfd3-9ab8-4e76-9397-3339d6d59d0a"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "dc799ce5-4005-4790-a853-61fc22a4e495"
+              "__uuid__": "00333671-ccec-4ef9-aa57-5e095619513a"
             }
           },
           {
             "frame": 0.7,
             "value": {
-              "__uuid__": "5ad0efaf-935a-4235-b93a-7fbf83aa841e"
-            }
-          },
-          {
-            "frame": 0.8,
-            "value": {
-              "__uuid__": "ff128911-2b80-4f91-9e4b-de11fc0a08b7"
+              "__uuid__": "b1a43dfa-c192-4316-9590-02f3d089635a"
             }
           }
         ]

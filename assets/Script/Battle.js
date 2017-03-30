@@ -1,4 +1,5 @@
 const CardCount = 4;
+const BattlePlayer = require('BattlePlayer');
 const Tween = require('TweenLite');
 const Timeline = require('TimelineLite');
 
@@ -17,23 +18,21 @@ var turnFsm = new StateMachine({
         onStart() {
             setTimeout(() => {
                 turnFsm.toPlayer();
-            }, 1000);
+            }, 100);
         },
         onPlayer() {
             setTimeout(() => {
                 playerFsm.start();
-            }, 1000);
+            }, 100);
         },
         onEnd() {
             battle.elementPool.gain();
             setTimeout(() => {
                 turnFsm.restart();
-            }, 1000);
+            }, 100);
         },
         onEnemy() {
-            setTimeout(() => {
-                turnFsm.toEnd();
-            }, battle.enemyTurnTime * 1000);
+            battle.attackAPlayer();
         },
 
         // debug
@@ -95,14 +94,13 @@ var playerFsm = new StateMachine({
             battle.elementPool.cost(data.cost);
         },
         onAttack() {
-            setTimeout(() => {
-                playerFsm.attackFinish();
-            }, 1000);
+            battle.setSelectEnemy(true);
+            // battle.attacker.attackTarget(battle.defender);
         },
         onEnd() {
             setTimeout(() => {
                 turnFsm.playerEnd();
-            }, 1000);
+            }, 100);
         },
 
         // debug
@@ -118,11 +116,13 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        enemyTurnTime: 2,
         cardPrefab: cc.Prefab,
         cards: cc.Node,
         turnFsmLabel: cc.Label,
-        playerFsmLabel: cc.Label
+        playerFsmLabel: cc.Label,
+        playerLoc: [cc.Node],
+        enemyLoc: [cc.Node],
+        playerPrefab: cc.Prefab,
     },
 
     onLoad() {
@@ -133,6 +133,29 @@ cc.Class({
             this.cardDatas = dataMng.cards;
             turnFsm.toStart();
         });
+        this.attackerIdx = 0;        
+        this.enemyIdx = 0;        
+        this.players = [];
+        this.enemies = [];
+        this.initPlayers();
+    },
+
+    initPlayers () {
+        for (let i = 0; i < this.playerLoc.length; ++i) {
+            let player = cc.instantiate(this.playerPrefab).getComponent(BattlePlayer);
+            this.players.push(player);
+            this.playerLoc[i].parent.addChild(player.node);
+            player.node.position = this.playerLoc[i].position;
+            player.init(this);
+        }
+        for (let i = 0; i < this.enemyLoc.length; ++i) {
+            let enemy = cc.instantiate(this.playerPrefab).getComponent(BattlePlayer);
+            enemy.node.scaleX = -1;
+            this.enemies.push(enemy);
+            this.enemyLoc[i].parent.addChild(enemy.node);
+            enemy.node.position = this.enemyLoc[i].position;
+            enemy.init(this);
+        }
     },
 
     drawCardsFinish() {
@@ -143,6 +166,44 @@ cc.Class({
 
     playerUseCardFinish() {
         playerFsm.useCardFinish();
+    },
+
+    onAttackComplete () {
+        if (this.playerAttacking) {
+            playerFsm.attackFinish();
+        }
+        else {
+            turnFsm.toEnd();
+        }
+    },
+
+    setSelectEnemy (on) {
+        for (let i = 0; i < this.enemies.length; ++i) {
+            var enemy = this.enemies[i];
+            var btn = enemy.getComponentInChildren(cc.Button);
+            btn.enabled = on;
+        }
+    },
+
+    attack (target) {
+        this.playerAttacking = this.enemies.indexOf(target) >= 0;
+        if (this.playerAttacking) {
+            this.players[this.attackerIdx].attackTarget(target);
+            ++this.attackerIdx;
+            this.attackerIdx = this.attackerIdx % this.players.length;
+            this.setSelectEnemy(false);
+        }
+        else {
+            this.enemies[this.enemyIdx].attackTarget(target);
+            ++this.enemyIdx;
+            this.enemyIdx = this.enemyIdx % this.enemies.length;
+        }
+    },
+
+    attackAPlayer () {
+        var idx = Math.floor(Math.random() * this.players.length);
+        var player = this.players[idx];
+        this.attack(player);
     }
 });
 
